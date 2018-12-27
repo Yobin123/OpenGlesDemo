@@ -16,15 +16,11 @@ import android.view.View;
  * @email he.yibin@scimall.org.cn
  */
 
-public class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public class BaseActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("OpenGl Es Demo");
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
 }

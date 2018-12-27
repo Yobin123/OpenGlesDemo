@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import yobin_he.com.openglesdemo.render.FGLViewActivity;
 
-public class MainActivity extends BaseActivity{
+public class MainActivity extends BaseActivity implements View.OnClickListener{
     private RecyclerView mList;
     private ArrayList<MenuBean> data;
     private Context mContext;
@@ -30,19 +30,13 @@ public class MainActivity extends BaseActivity{
         if(data == null){
             data = new ArrayList<>();
         }
+
         add("绘制形体", FGLViewActivity.class);
         mList.setAdapter(new MenuAdapter());
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
-        int position = (int) v.getTag();
-        MenuBean bean = data.get(position);
-        startActivity(new Intent(mContext,bean.getClass()));
 
     }
+
+
 
     private class MenuBean{
         String name;
@@ -92,5 +86,13 @@ public class MainActivity extends BaseActivity{
         }
 
     }
+
+    @Override
+    public void onClick(View v) {
+        int position = (int) v.getTag();
+        MenuBean bean = data.get(position);
+        startActivity(new Intent(this,bean.clazz));
+    }
+
 
 }

@@ -52,7 +52,7 @@ public class Cube extends Shape {
     final int CORDS_PER_VERTEX = 3;
 
     final float cubPositions[] = {
-            -1.0f,1.0f,1.0f, // 正面左上0；
+            -1.0f,1.0f,1.0f, // 正面左上0
             -1.0f,-1.0f,1.0f,   //正面左下1
             1.0f,-1.0f,1.0f,    //正面右下2
             1.0f,1.0f,1.0f,     //正面右上3
@@ -67,20 +67,24 @@ public class Cube extends Shape {
             6,7,4,6,4,5,    //后面
             6,3,7,6,2,3,    //右面
             6,5,1,6,1,2,    //下面
+
             0,3,2,0,2,1,    //正面
             0,1,5,0,5,4,    //左面
             0,7,3,0,4,7,    //上面
     };
 
     float color[] = {
+            0f,0f,0f,1f,
+            0f,0f,1f,1f,
+
             0f,1f,0f,1f,
-            0f,1f,0f,1f,
-            0f,1f,0f,1f,
-            0f,1f,0f,1f,
+            0f,1f,1f,1f,
+
             1f,0f,0f,1f,
-            1f,0f,0f,1f,
-            1f,0f,0f,1f,
-            1f,0f,0f,1f,
+            1f,0f,1f,1f,
+
+            1f,1f,0f,1f,
+            1f,1f,1f,1f,
     };
 
     private int mPositionHandle;
@@ -162,22 +166,25 @@ public class Cube extends Shape {
         mMatrixHandle = GLES20.glGetUniformLocation(mProgram,"vMatrix");
         //制定vMatrix的值
         GLES20.glUniformMatrix4fv(mMatrixHandle,1,false,mMVPMatrix,0);
+
+
         //获取顶点着色器的vPosition的成员句柄
         mPositionHandle = GLES20.glGetAttribLocation(mProgram,"vPosition");
         //启用三角形顶点句柄
         GLES20.glEnableVertexAttribArray(mPositionHandle);
-
         //准备三角形的坐标数据
         GLES20.glVertexAttribPointer(mPositionHandle,3,GLES20.GL_FLOAT,false,0,vertexBuffer);
+
+
         //获取片元着色器的vColor的成员句柄
         mColorHandle = GLES20.glGetAttribLocation(mProgram,"aColor");
-
         //设置绘制三角形的颜色
         GLES20.glEnableVertexAttribArray(mColorHandle);
         GLES20.glVertexAttribPointer(mColorHandle,4,GLES20.GL_FLOAT,false,0,colorBuffer);
 
+
         //索引法绘制正方体
-        GLES20.glDrawElements(GLES20.GL_TRIANGLES,index.length,GLES20.GL_UNSIGNED_SHORT,indexBuffer);;
+        GLES20.glDrawElements(GLES20.GL_TRIANGLES,index.length,GLES20.GL_UNSIGNED_SHORT,indexBuffer);
         //禁止顶点数组的句柄
         GLES20.glDisableVertexAttribArray(mPositionHandle);
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import yobin_he.com.openglesdemo.ChooseActivity;
 import yobin_he.com.openglesdemo.R;
 
 public class FGLViewActivity extends AppCompatActivity {
@@ -29,7 +30,8 @@ public class FGLViewActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.mChange:
                 // TODO: 2018/12/27 进行跳转
-
+                Intent intent=new Intent(this,ChooseActivity.class);
+                startActivityForResult(intent,REQ_CHOOSE);
                 break;
         }
     }
@@ -44,5 +46,13 @@ public class FGLViewActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         mGLView.onPause();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK){
+            mGLView.setShape((Class<? extends Shape>)data.getSerializableExtra("name"));
+        }
     }
 }

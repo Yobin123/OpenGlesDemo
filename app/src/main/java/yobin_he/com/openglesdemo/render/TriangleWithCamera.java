@@ -2,7 +2,6 @@ package yobin_he.com.openglesdemo.render;
 
 import android.opengl.GLES20;
 import android.opengl.Matrix;
-import android.text.style.TtsSpan;
 import android.view.View;
 
 import java.nio.ByteBuffer;

@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import yobin_he.com.openglesdemo.render.Square;
 import yobin_he.com.openglesdemo.render.Triangle;
+import yobin_he.com.openglesdemo.render.TriangleColorFull;
 import yobin_he.com.openglesdemo.render.TriangleWithCamera;
 
 public class ChooseActivity extends AppCompatActivity {
@@ -49,7 +51,8 @@ public class ChooseActivity extends AppCompatActivity {
         mData = new ArrayList<>();
         add("三角形", Triangle.class);
         add("正三角形", TriangleWithCamera.class);
-
+        add("彩色三角形", TriangleColorFull.class);
+        add("正方形", Square.class);
     }
 
     private class Data {

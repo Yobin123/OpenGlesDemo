@@ -59,7 +59,7 @@ public class Oval extends Shape {
     private float[] shapePos;
     private float height = 0.0f;
 
-    float color[] = {0.0f,0.0f,0.0f,0.0f};
+    float color[] = {0.0f,1.0f,0.0f,0.0f};
 
 
     public Oval(View view) {

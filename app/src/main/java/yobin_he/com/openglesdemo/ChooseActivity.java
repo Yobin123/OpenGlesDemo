@@ -14,8 +14,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import yobin_he.com.openglesdemo.render.Ball;
 import yobin_he.com.openglesdemo.render.Cone;
 import yobin_he.com.openglesdemo.render.Cube;
+import yobin_he.com.openglesdemo.render.Cylinder;
 import yobin_he.com.openglesdemo.render.Oval;
 import yobin_he.com.openglesdemo.render.Square;
 import yobin_he.com.openglesdemo.render.Triangle;
@@ -59,6 +61,8 @@ public class ChooseActivity extends AppCompatActivity {
         add("圆形",Oval.class);
         add("正方体", Cube.class);
         add("圆锥", Cone.class);
+        add("圆柱", Cylinder.class);
+        add("球体", Ball.class);
     }
 
     private class Data {

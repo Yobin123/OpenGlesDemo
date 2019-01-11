@@ -34,6 +34,7 @@ public class FGLRender extends Shape {
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+        //将背景设置为灰色。
         GLES20.glClearColor(0.5f,0.5f,0.5f,1f);
         try {
             Constructor constructor = clazz.getDeclaredConstructor(View.class);

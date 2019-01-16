@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
+import yobin_he.com.openglesdemo.image.SGLViewActivity;
 import yobin_he.com.openglesdemo.render.FGLViewActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
 
         add("绘制形体", FGLViewActivity.class);
+        add("图片处理", SGLViewActivity.class);
         mList.setAdapter(new MenuAdapter());
 
     }
